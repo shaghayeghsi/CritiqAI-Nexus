@@ -51,5 +51,3 @@ curl -X POST http://127.0.0.1:8000/api/v1/knowledge/ask -H "Content-Type: applic
 
 ## Structure
 `app/agents` LangGraph; `app/api` FastAPI; `app/database` SQLAlchemy; `app/rag` retrieval; `app/learning` argument feedback; `n8n` workflow export; `tests` automated tests; `docs` architecture notes.
-
-MIT License. See LICENSE.
