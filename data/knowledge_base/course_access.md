@@ -1,0 +1,2 @@
+# Course portal access
+Students access course materials through the institution's Learning Portal. If sign-in fails, verify the registered email address and reset the password using the account recovery page. If the issue continues after password reset, contact the help desk and include the course code and a screenshot of the error. Never share passwords or one-time verification codes with support staff.
