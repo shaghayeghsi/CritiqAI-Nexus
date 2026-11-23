@@ -51,3 +51,42 @@ curl -X POST http://127.0.0.1:8000/api/v1/knowledge/ask -H "Content-Type: applic
 
 ## Structure
 `app/agents` LangGraph; `app/api` FastAPI; `app/database` SQLAlchemy; `app/rag` retrieval; `app/learning` argument feedback; `n8n` workflow export; `tests` automated tests; `docs` architecture notes.
+
+
+## معرفی پروژه
+
+**CritiqAI Nexus** یک پلتفرم هوشمند مبتنی بر عامل‌های هوش مصنوعی (Multi-Agent AI) است که با هدف خودکارسازی فرآیندهای پشتیبانی، مدیریت دانش و آموزش طراحی شده است. این سامانه با استفاده از پردازش درخواست‌های کاربران، جست‌وجو در اسناد سازمانی (RAG)، تحلیل و ارزیابی استدلال و گردش‌کارهای هوشمند، می‌تواند به سؤالات پاسخ دهد، اطلاعات مرتبط را بازیابی کند و درخواست‌های نیازمند بررسی را به نیروی انسانی ارجاع دهد.
+
+این پروژه با استفاده از **Python، FastAPI، LangGraph، PostgreSQL و n8n** توسعه داده می‌شود و بستری قابل توسعه برای ساخت دستیارهای هوشمند سازمانی و اتوماسیون فرآیندهای کسب‌وکار فراهم می‌کند. همچنین با حفظ قابلیت‌های تحلیل استدلال و یادگیری، ادامه‌ای کاربردی بر ایده پژوهشی CritiqAI محسوب می‌شود.
+
+## نمای کلی معماری و گردش‌کار
+
+```mermaid
+flowchart TD
+    A["User Request"] --> B["FastAPI"]
+    B --> C["LangGraph Supervisor"]
+
+    C --> D["Support Agent"]
+    C --> E["Knowledge Assistant"]
+    C --> F["Learning Agent"]
+
+    D --> G["Ticket Management"]
+    E --> H["RAG / Document Retrieval"]
+    F --> I["Argument Analysis"]
+
+    H --> J["PostgreSQL"]
+    G --> J
+    I --> K["Learning Feedback"]
+
+    G --> L{"Human Review Required?"}
+    L -->|Yes| M["n8n Workflow"]
+    M --> N["Notification / Human Handoff"]
+    L -->|No| O["Automated Response"]
+
+    J --> P["Analytics"]
+    K --> P
+    O --> Q["User Response"]
+    N --> Q
+```
+
+*توجه: این نمودار معماری هدف پروژه را نشان می‌دهد؛ برخی اجزا مانند اتصال واقعی Qdrant، مدل زبانی و اتوماسیون کامل در مراحل توسعه تکمیل خواهند شد.*
